@@ -16,7 +16,7 @@ html {
     display: flex;
     background-color: palevioletred;
     width: 400px;
-    height: 500px;
+    height: 600px;
     border-radius: 50px;
     box-shadow: 0 0 20px #d87093;
     padding: 20px;
@@ -79,4 +79,10 @@ h2 {
     background-color: #7dd1d1;
     text-shadow: 0 0 1px palevioletred;
     border: 2px solid #7dd1d1;
+}
+
+#winner-para {
+    color: #7dd1d1;
+    font-size: 150%;
+    text-shadow: 0 0 1px #7dd1d1;
 }
