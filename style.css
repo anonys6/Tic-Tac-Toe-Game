@@ -86,3 +86,14 @@ h2 {
     font-size: 150%;
     text-shadow: 0 0 1px #7dd1d1;
 }
+
+.winner-count {
+    display: flex;
+}
+
+.winner-count p {
+    margin: 0 40px;
+    color: #7dd1d1;
+    font-size: 120%;
+    text-shadow: 0 0 1px #7dd1d1;
+}

@@ -2,6 +2,10 @@ const itemsEl = document.getElementsByClassName("items");
 const clearBtn = document.getElementById("clear");
 const winnerPara = document.getElementById("winner-para");
 const box = document.getElementById("box");
+const xResult = document.getElementById("x-result");
+const oResult = document.getElementById("o-result");
+let xWinCount = 0;
+let oWinCount = 0;
 let cross = true;
 let board = [
     ["", "", ""],
@@ -81,23 +85,26 @@ function checkWinner() {
         if ((board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][2] === "X") || (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[2][i] === "X")) {
             console.log("Winner is X");
             winnerPara.textContent += " X";
+            xWinCount++;
             blockBox();
         } else if ((board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][2] === "O") || (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[2][i] === "O")) {
             console.log("Winner is O");
             winnerPara.textContent += " O";
+            oWinCount++;
             blockBox();
         }
-
     }
-
+    
     // Diagonal Check
     if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[2][2] === "X") || (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[2][0] === "X")) {
         console.log("Winner is X");
         winnerPara.textContent += " X"
+        xWinCount++;
         blockBox();
     } else if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[2][2] === "O") || (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[2][0] === "O")) {
         console.log("Winner is O");
         winnerPara.textContent += " O";
+        oWinCount++;
         blockBox();
     }
 }
@@ -109,4 +116,6 @@ function blockBox() {
         itemsEl[i].style.cursor = "not-allowed";
         itemsEl[i].style.pointerEvents = 'none';
     }
+    xResult.textContent = "X: " + xWinCount;
+    oResult.textContent = "O: " + oWinCount;
 }
