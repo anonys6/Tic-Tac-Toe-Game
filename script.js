@@ -69,4 +69,28 @@ function updateMatrix(k) {
             }
         }
     }
+
+    checkWinner()
+}
+
+function checkWinner() {
+
+    for (let i = 0; i < board.length; i++) {
+        if ((board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][2] === "X") || (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[2][i] === "X")) {
+            console.log("Winner is X");
+            winnerPara.textContent += " X";
+        } else if ((board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][2] === "O") || (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[2][i] === "O")) {
+            console.log("Winner is O");
+            winnerPara.textContent += " O";
+        }
+
+    }
+
+    if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[2][2] === "X") || (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[2][0] === "X")) {
+        console.log("Winner is X");
+        winnerPara.textContent += " X"
+    } else if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[2][2] === "O") || (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[2][0] === "O")) {
+        console.log("Winner is O");
+        winnerPara.textContent += " O";
+    }
 }
