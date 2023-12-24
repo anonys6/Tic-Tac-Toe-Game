@@ -37,3 +37,4 @@ clearBtn.addEventListener("click", function () {
         itemsEl[i].innerHTML = "";
     }
 })
+
