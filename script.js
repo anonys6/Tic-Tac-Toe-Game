@@ -1,6 +1,7 @@
 const itemsEl = document.getElementsByClassName("items");
 const clearBtn = document.getElementById("clear");
 const winnerPara = document.getElementById("winner-para");
+const box = document.getElementById("box");
 let cross = true;
 let board = [
     ["", "", ""],
@@ -45,6 +46,7 @@ clearBtn.addEventListener("click", function () {
     for (let i = 0; i < itemsEl.length; i++) {
         itemsEl[i].style.cursor = "pointer";
         itemsEl[i].innerHTML = "";
+        itemsEl[i].style.pointerEvents = 'auto';
     }
     winnerPara.textContent = "Winner:";
     board = [
@@ -79,18 +81,32 @@ function checkWinner() {
         if ((board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][2] === "X") || (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[2][i] === "X")) {
             console.log("Winner is X");
             winnerPara.textContent += " X";
+            blockBox();
         } else if ((board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][2] === "O") || (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[2][i] === "O")) {
             console.log("Winner is O");
             winnerPara.textContent += " O";
+            blockBox();
         }
 
     }
 
+    // Diagonal Check
     if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[2][2] === "X") || (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[2][0] === "X")) {
         console.log("Winner is X");
         winnerPara.textContent += " X"
+        blockBox();
     } else if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[2][2] === "O") || (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[2][0] === "O")) {
         console.log("Winner is O");
         winnerPara.textContent += " O";
+        blockBox();
+    }
+}
+
+function blockBox() {
+    box.style.cursor = "not-allowed";
+
+    for (let i = 0; i < itemsEl.length; i++) {
+        itemsEl[i].style.cursor = "not-allowed";
+        itemsEl[i].style.pointerEvents = 'none';
     }
 }
