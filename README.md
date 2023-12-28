@@ -2,7 +2,7 @@
 
 This is a simple and interactive Tic-Tac-Toe game implemented using HTML, CSS, and JavaScript.
 
-![Tic-Tac-Toe Game](https://anonys6.github.io/Tic-Tac-Toe-Game/)
+[Tic-Tac-Toe Game](https://anonys6.github.io/Tic-Tac-Toe-Game/)
 
 ## Features
 
